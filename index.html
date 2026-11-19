@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>First Repo Showcase</title>
+<style>
+  :root {
+    --bg: #f7f6f3; --surface: #ffffff; --text: #1d1d1f; --muted: #5f5f66;
+    --accent: #c65a2e; --accent-soft: #f6e3da; --border: #e4e2dc;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #161618; --surface: #202024; --text: #eeeeef; --muted: #a3a3ab;
+      --accent: #e7845a; --accent-soft: #3a2a23; --border: #33333a;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 64px 0 32px; }
+  .tag {
+    display: inline-block; background: var(--accent-soft); color: var(--accent);
+    padding: 4px 12px; border-radius: 999px; font-size: 13px; font-weight: 600;
+  }
+  h1 { font-size: clamp(32px, 6vw, 52px); line-height: 1.1; margin: 16px 0 12px; }
+  h2 { font-size: 24px; margin: 48px 0 16px; }
+  .lead { color: var(--muted); font-size: 18px; max-width: 620px; }
+  .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 14px; padding: 20px;
+  }
+  .card .icon { font-size: 28px; }
+  .card h3 { margin: 8px 0 6px; font-size: 18px; }
+  .card p { margin: 0; color: var(--muted); font-size: 15px; }
+  .demos { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  label { display: block; font-size: 14px; color: var(--muted); margin: 10px 0 4px; }
+  input {
+    width: 100%; padding: 10px 12px; font: inherit; color: var(--text);
+    background: var(--bg); border: 1px solid var(--border); border-radius: 8px;
+  }
+  button {
+    font: inherit; font-weight: 600; cursor: pointer; border: 0;
+    background: var(--accent); color: #fff; padding: 10px 16px; border-radius: 8px;
+  }
+  .row { display: flex; gap: 8px; }
+  .row input { flex: 1; }
+  .big { font-size: 28px; font-weight: 700; margin-top: 12px; }
+  ul.todos { list-style: none; padding: 0; margin: 12px 0 0; }
+  ul.todos li {
+    display: flex; align-items: center; gap: 10px; padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  ul.todos li.done span { text-decoration: line-through; color: var(--muted); }
+  ul.todos li span { flex: 1; overflow-wrap: anywhere; }
+  .x { background: transparent; color: var(--muted); padding: 2px 8px; }
+  ol.steps { padding-left: 20px; }
+  ol.steps li { margin-bottom: 8px; }
+  code { background: var(--accent-soft); padding: 1px 6px; border-radius: 4px; font-size: 14px; }
+  footer { color: var(--muted); font-size: 14px; padding: 48px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="tag">Built with Claude Code</span>
+    <h1>What you can make from your first repo</h1>
+    <p class="lead">This page was written by Claude, committed and pushed to your GitHub repo. Below are some
+      things you can build next, plus two small working demos you can try right now.</p>
+  </header>
+
+  <h2>Ideas you could build</h2>
+  <div class="grid">
+    <div class="card"><div class="icon">🌐</div><h3>Personal website</h3>
+      <p>A portfolio or resume page, hosted for free with GitHub Pages.</p></div>
+    <div class="card"><div class="icon">🧮</div><h3>Handy tools</h3>
+      <p>Calculators, converters and planners that run in the browser.</p></div>
+    <div class="card"><div class="icon">🎮</div><h3>Small games</h3>
+      <p>Quizzes, puzzles or arcade-style games in plain HTML and JavaScript.</p></div>
+    <div class="card"><div class="icon">🐍</div><h3>Scripts &amp; automation</h3>
+      <p>Python scripts that rename files, clean spreadsheets or fetch data.</p></div>
+    <div class="card"><div class="icon">📊</div><h3>Dashboards</h3>
+      <p>Charts that turn a CSV or spreadsheet into something readable.</p></div>
+    <div class="card"><div class="icon">⚙️</div><h3>Full apps</h3>
+      <p>Web apps with a backend, a database and user logins.</p></div>
+  </div>
+
+  <h2>Try it: two live demos</h2>
+  <div class="demos">
+    <div class="card">
+      <h3>Tip calculator</h3>
+      <label for="bill">Bill amount</label>
+      <input id="bill" type="number" min="0" step="0.01" value="50">
+      <label for="tip">Tip %</label>
+      <input id="tip" type="number" min="0" value="15">
+      <label for="people">Split between</label>
+      <input id="people" type="number" min="1" value="2">
+      <div class="big" id="each"></div>
+      <p id="total"></p>
+    </div>
+    <div class="card">
+      <h3>To-do list</h3>
+      <form class="row" id="todoForm">
+        <input id="todoInput" placeholder="Add a task…" aria-label="New task">
+        <button type="submit">Add</button>
+      </form>
+      <ul class="todos" id="todos"></ul>
+    </div>
+  </div>
+
+  <h2>How this page got here</h2>
+  <ol class="steps">
+    <li>You asked: <em>“Give me an example… as an HTML website.”</em></li>
+    <li>Claude wrote <code>index.html</code> in your repo, which is this file.</li>
+    <li>It committed the file and pushed it to the branch <code>claude/how-it-works-dfsw6q</code>.</li>
+    <li>Next, you can merge it, or turn on GitHub Pages to get a public link.</li>
+  </ol>
+
+  <footer>Made in First-REPO · plain HTML, CSS &amp; JavaScript, no frameworks needed.</footer>
+</div>
+
+<script>
+  // Tip calculator
+  const $ = id => document.getElementById(id);
+  function calc() {
+    const bill = parseFloat($('bill').value) || 0;
+    const tip = parseFloat($('tip').value) || 0;
+    const people = Math.max(1, parseInt($('people').value) || 1);
+    const total = bill * (1 + tip / 100);
+    $('each').textContent = (total / people).toFixed(2) + ' each';
+    $('total').textContent = 'Total with tip: ' + total.toFixed(2);
+  }
+  ['bill', 'tip', 'people'].forEach(id => $(id).addEventListener('input', calc));
+  calc();
+
+  // To-do list (remembered in this browser when possible)
+  let todos = [];
+  try { todos = JSON.parse(localStorage.getItem('todos')) || []; } catch (e) {}
+  if (!todos.length) todos = [{ text: 'Look around this page', done: true }, { text: 'Ask Claude to build something', done: false }];
+  function save() { try { localStorage.setItem('todos', JSON.stringify(todos)); } catch (e) {} }
+  function render() {
+    const ul = $('todos');
+    ul.innerHTML = '';
+    todos.forEach((t, i) => {
+      const li = document.createElement('li');
+      if (t.done) li.className = 'done';
+      const cb = document.createElement('input');
+      cb.type = 'checkbox'; cb.checked = t.done; cb.style.width = 'auto';
+      cb.onchange = () => { t.done = cb.checked; save(); render(); };
+      const span = document.createElement('span');
+      span.textContent = t.text;
+      const del = document.createElement('button');
+      del.className = 'x'; del.textContent = '✕'; del.setAttribute('aria-label', 'Delete');
+      del.onclick = () => { todos.splice(i, 1); save(); render(); };
+      li.append(cb, span, del);
+      ul.append(li);
+    });
+  }
+  $('todoForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const v = $('todoInput').value.trim();
+    if (!v) return;
+    todos.push({ text: v, done: false });
+    $('todoInput').value = '';
+    save(); render();
+  });
+  render();
+</script>
+</body>
+</html>
